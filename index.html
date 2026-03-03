@@ -11,7 +11,7 @@ body {
     margin: 0;
     font-family: 'Inter', sans-serif;
     background: url("images/Pepe_vizjegy.jpg") center/cover fixed;
-    color: white;
+    color: rgb(165, 218, 172);
     text-align: center;
     backdrop-filter: blur(3px);
 }
@@ -119,13 +119,13 @@ input[type="checkbox"] {
 <div class="section">
 <h2>Regisztráció</h2>
 <form action="https://formspree.io/f/mojnorvy" method="POST">
-    <input type="text" name="teamname" placeholder="Csapat neve" required>
+    <input type="text" name="teamname" placeholder="Csapat neve">
     <input type="text" name="captain" placeholder="Csapatkapitány neve *" required>
     <input type="email" name="email" placeholder="Email cím *" required>
     <input type="tel" name="phone" placeholder="Telefonszám *" required>
     <input type="text" name="member2" placeholder="2. csapattag neve *" required>
-    <input type="text" name="member3" placeholder="3. csapattag neve" required>
-    <input type="text" name="member4" placeholder="4. csapattag neve" required>
+    <input type="text" name="member3" placeholder="3. csapattag neve">
+    <input type="text" name="member4" placeholder="4. csapattag neve">
     <div class="checkbox-group">
         <input type="checkbox" name="rules" id="rules" required>
         <label for="rules">Elfogadom a szabályzatot *</label>
@@ -136,12 +136,15 @@ input[type="checkbox"] {
 
 <div class="section">
 <h2>📂 Letölthető fájlok</h2>
-<p>Adja meg a jelszót a letöltéshez:</p>
+<!-- mindenki láthatja ezt -->
+<a href="files/alapszabalyzat.odt" class="file-link" download>Szabályzat letöltése</a>
+
+<p style="margin-top:30px;">Előfeladat letöltése jelszóval véve:</p>
 <input type="password" id="file-password" placeholder="Jelszó">
 <button id="unlock-btn" class="btn">Megnyitás</button>
 
 <div id="protected-files" style="display:none; margin-top:20px;">
-    <a href="files/alapszabalyzat.odt" class="file-link" download>Szabályzat letöltése</a>
+    <a href="files/e_feladatlap.pdf" class="file-link" download>Előfeladat letöltése</a>
 </div>
 </div>
 
@@ -174,8 +177,8 @@ const form = document.querySelector('form');
 const submitBtn = form.querySelector('button[type="submit"]');
 const requiredInputs = form.querySelectorAll('[required]');
 
-// Password protection for downloads
-const correctPassword = "kocsma2026"; // change as needed
+// Password protection for downloads (shop only the előfeladat)
+const correctPassword = "0000"; // change as needed
 const unlockBtn = document.getElementById('unlock-btn');
 const passwordInput = document.getElementById('file-password');
 const protectedFiles = document.getElementById('protected-files');
