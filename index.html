@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ABCD Kocsmatúra</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Impact, Arial Black, sans-serif;
+    background: url("https://i.imgur.com/8Km9tLL.jpg") center/cover fixed;
+    color: white;
+    text-align: center;
+    backdrop-filter: blur(3px);
+}
+
+.overlay {
+    background: rgba(0,0,0,0.75);
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+h1 {
+    font-size: 4rem;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 40px;
+}
+
+.section {
+    margin: 60px auto;
+    max-width: 700px;
+    background: rgba(20,20,20,0.9);
+    padding: 30px;
+    border-radius: 15px;
+}
+
+button, .btn {
+    padding: 15px 25px;
+    font-size: 1rem;
+    background: yellow;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+
+input {
+    width: 90%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 6px;
+    border: none;
+}
+
+.countdown {
+    font-size: 2rem;
+    margin-top: 20px;
+}
+
+.file-link {
+    display: block;
+    margin: 15px 0;
+    color: cyan;
+    font-size: 1.2rem;
+}
+</style>
+</head>
+
+<body>
+<div class="overlay">
+
+<h1>ABCD Kocsmatúra</h1>
+<div class="subtitle">This is not a drill.</div>
+
+<div class="section">
+<h2>⏳ Visszaszámlálás</h2>
+<div class="countdown" id="countdown"></div>
+</div>
+
+<div class="section">
+<h2>🍻 Csapat Regisztráció</h2>
+<form action="https://formspree.io/f/YOUR_ID" method="POST">
+    <input type="text" name="teamname" placeholder="Csapat neve" required>
+    <input type="text" name="captain" placeholder="Csapatkapitány neve" required>
+    <input type="email" name="email" placeholder="Email cím" required>
+    <input type="number" name="members" placeholder="Hány fő?" required>
+    <button type="submit">Regisztrálok</button>
+</form>
+</div>
+
+<div class="section">
+<h2>📂 Letölthető fájlok</h2>
+<a href="files/szabalyzat.pdf" class="file-link" download>Szabályzat letöltése</a>
+<a href="files/feladatlap.pdf" class="file-link" download>Feladatlap letöltése</a>
+<a href="files/terkep.pdf" class="file-link" download>Térkép letöltése</a>
+</div>
+
+</div>
+
+<script>
+// ESEMÉNY DÁTUM (állítsd át!)
+const eventDate = new Date("April 18, 2026 18:00:00").getTime();
+
+const countdownFunction = setInterval(function() {
+    const now = new Date().getTime();
+    const distance = eventDate - now;
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("countdown").innerHTML =
+        days + " nap " + hours + " óra " +
+        minutes + " perc " + seconds + " mp";
+
+    if (distance < 0) {
+        clearInterval(countdownFunction);
+        document.getElementById("countdown").innerHTML = "ELINDULT.";
+    }
+}, 1000);
+</script>
+
+</body>
+</html>
