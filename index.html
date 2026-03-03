@@ -4,7 +4,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;700&display=swap" rel="stylesheet">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ABCD Kocsmatúra</title>
+<title>A.B.C.D. Kocsmatúra</title>
 
 <style>
 body {
@@ -55,12 +55,35 @@ button, .btn {
     color: black;
 }
 
-input {
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"] {
     width: 90%;
     padding: 12px;
     margin: 10px 0;
     border-radius: 6px;
     border: none;
+}
+
+input[type="checkbox"] {
+    width: auto;
+    margin: 0 8px 0 0;
+    cursor: pointer;
+}
+
+.checkbox-group {
+    margin: 15px 0;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.checkbox-group label {
+    margin: 0;
+    cursor: pointer;
 }
 
 .countdown {
@@ -88,12 +111,19 @@ input {
 </div>
 
 <div class="section">
-<h2>🍻 Csapat Regisztráció</h2>
+<h2>Regisztráció</h2>
 <form action="https://formspree.io/f/YOUR_ID" method="POST">
     <input type="text" name="teamname" placeholder="Csapat neve" required>
     <input type="text" name="captain" placeholder="Csapatkapitány neve" required>
     <input type="email" name="email" placeholder="Email cím" required>
-    <input type="number" name="members" placeholder="Hány fő?" required>
+    <input type="tel" name="phone" placeholder="Telefonszám" required>
+    <input type="text" name="member2" placeholder="2. csapattag neve" required>
+    <input type="text" name="member3" placeholder="3. csapattag neve" required>
+    <input type="text" name="member4" placeholder="4. csapattag neve" required>
+    <div class="checkbox-group">
+        <input type="checkbox" name="rules" id="rules" required>
+        <label for="rules">Elfogadom a szabályzatot</label>
+    </div>
     <button type="submit">Regisztrálok</button>
 </form>
 </div>
