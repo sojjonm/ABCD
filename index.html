@@ -55,6 +55,12 @@ button, .btn {
     color: black;
 }
 
+button:disabled {
+    background: #cccccc;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
 input[type="text"],
 input[type="email"],
 input[type="tel"],
@@ -112,17 +118,17 @@ input[type="checkbox"] {
 
 <div class="section">
 <h2>Regisztráció</h2>
-<form action="https://formspree.io/f/YOUR_ID" method="POST">
+<form action="https://formspree.io/f/mojnorvy" method="POST">
     <input type="text" name="teamname" placeholder="Csapat neve" required>
-    <input type="text" name="captain" placeholder="Csapatkapitány neve" required>
-    <input type="email" name="email" placeholder="Email cím" required>
-    <input type="tel" name="phone" placeholder="Telefonszám" required>
-    <input type="text" name="member2" placeholder="2. csapattag neve" required>
+    <input type="text" name="captain" placeholder="Csapatkapitány neve *" required>
+    <input type="email" name="email" placeholder="Email cím *" required>
+    <input type="tel" name="phone" placeholder="Telefonszám *" required>
+    <input type="text" name="member2" placeholder="2. csapattag neve *" required>
     <input type="text" name="member3" placeholder="3. csapattag neve" required>
     <input type="text" name="member4" placeholder="4. csapattag neve" required>
     <div class="checkbox-group">
         <input type="checkbox" name="rules" id="rules" required>
-        <label for="rules">Elfogadom a szabályzatot</label>
+        <label for="rules">Elfogadom a szabályzatot *</label>
     </div>
     <button type="submit">Regisztrálok</button>
 </form>
@@ -158,7 +164,34 @@ const countdownFunction = setInterval(function() {
         document.getElementById("countdown").innerHTML = "ELINDULT.";
     }
 }, 1000);
-</script>
+
+// Form validation - enable/disable submit button
+const form = document.querySelector('form');
+const submitBtn = form.querySelector('button[type="submit"]');
+const requiredInputs = form.querySelectorAll('[required]');
+
+function checkFormValidity() {
+    let isValid = true;
+    
+    requiredInputs.forEach(input => {
+        if (input.type === 'checkbox') {
+            if (!input.checked) isValid = false;
+        } else {
+            if (!input.value.trim()) isValid = false;
+        }
+    });
+    
+    submitBtn.disabled = !isValid;
+}
+
+// First check on page load
+checkFormValidity();
+
+// Listen to changes on all required inputs
+requiredInputs.forEach(input => {
+    input.addEventListener('input', checkFormValidity);
+    input.addEventListener('change', checkFormValidity);
+});
 
 </body>
 </html>
