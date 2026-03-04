@@ -25,7 +25,7 @@ body {
 h1 {
     font-family: 'Anton', sans-serif;
     letter-spacing: 2px;
-    font-size: 4rem;
+    font-size: 5rem;
     text-transform: uppercase;
     margin-bottom: 10px;
     color: #FFD700;
@@ -191,6 +191,263 @@ input[type="checkbox"] {
     transform: scale(1.2) rotate(-10deg);
     box-shadow: 0 0 20px rgba(255,215,0,0.8);
 }
+
+.instagram-link {
+    background: linear-gradient(135deg, #E1306C 0%, #FD1D1D 25%, #F77737 50%, #FCAF45 100%);
+    color: white;
+}
+
+.instagram-link:hover {
+    box-shadow: 0 0 25px rgba(225, 48, 108, 0.8);
+}
+
+/* Download buttons */
+.download-btn {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    color: white;
+}
+
+.btn-green {
+    background: #22c55e;
+}
+
+.btn-green:hover {
+    background: #16a34a;
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(34, 197, 94, 0.4);
+}
+
+.btn-red {
+    background: #ef4444;
+}
+
+.btn-red:hover {
+    background: #dc2626;
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(239, 68, 68, 0.4);
+}
+
+.btn-blue {
+    background: #3b82f6;
+}
+
+.btn-blue:hover {
+    background: #2563eb;
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4);
+}
+
+.btn-yellow {
+    background: #eab308;
+    color: black;
+}
+
+.btn-yellow:hover {
+    background: #ca8a04;
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(234, 179, 8, 0.4);
+}
+
+/* Navigation buttons */
+.nav-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 30px 0;
+    flex-wrap: wrap;
+}
+
+.nav-btn {
+    padding: 12px 25px;
+    color: black;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    border: 3px solid black;
+}
+
+.nav-btn:nth-child(1) {
+    background: #ff6b6b;
+}
+
+.nav-btn:nth-child(1):hover {
+    background: #ff5252;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(255, 107, 107, 0.4);
+}
+
+.nav-btn:nth-child(2) {
+    background: #ffd700;
+}
+
+.nav-btn:nth-child(2):hover {
+    background: #ffed4e;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(255, 215, 0, 0.4);
+}
+
+.nav-btn:nth-child(3) {
+    background: #51cf66;
+}
+
+.nav-btn:nth-child(3):hover {
+    background: #69db7c;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(81, 207, 102, 0.4);
+}
+
+.nav-btn:nth-child(4) {
+    background: #74c0fc;
+}
+
+.nav-btn:nth-child(4):hover {
+    background: #a5d8ff;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(116, 192, 252, 0.4);
+}
+
+/* Form spinner and message */
+.spinner {
+    display: none;
+    border: 4px solid rgba(255, 215, 0, 0.3);
+    border-top: 4px solid #FFD700;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 0.8s linear infinite;
+    margin: 20px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.form-message {
+    display: none;
+    text-align: center;
+    margin: 20px 0;
+    padding: 15px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.form-message.success {
+    background: rgba(0, 255, 0, 0.2);
+    color: #00ff00;
+    display: block;
+}
+
+/* Mobile optimalization */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+        letter-spacing: 1px;
+    }
+
+    .overlay {
+        padding: 20px 10px;
+    }
+
+    .section {
+        margin: 30px auto;
+        padding: 20px;
+        max-width: 100%;
+    }
+
+    button, .btn {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="number"],
+    input[type="password"] {
+        width: 95%;
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    .countdown {
+        font-size: 1.5rem;
+    }
+
+    .file-link {
+        font-size: 1rem;
+    }
+
+    .social-links a {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8rem;
+        -webkit-text-stroke: 1px black;
+        text-stroke: 1px black;
+    }
+
+    .overlay {
+        padding: 15px 10px;
+    }
+
+    .section {
+        margin: 20px auto;
+        padding: 15px;
+    }
+
+    button, .btn {
+        padding: 10px 15px;
+        font-size: 0.85rem;
+        width: 95%;
+    }
+
+    .countdown {
+        font-size: 1.2rem;
+    }
+
+    .file-link {
+        font-size: 0.9rem;
+    }
+
+    .social-links {
+        gap: 15px;
+    }
+
+    .social-links a {
+        width: 45px;
+        height: 45px;
+        font-size: 1rem;
+    }
+
+    h2 {
+        font-size: 1.1rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+    }
+}
 </style>
 </head>
 
@@ -199,14 +456,21 @@ input[type="checkbox"] {
 
 <h1>ABCD Kocsmatúra</h1>
 
-<div class="section">
+<div class="nav-buttons">
+    <a href="#szamlalo" class="nav-btn">⏳ Visszaszámlálás</a>
+    <a href="#regisztracio" class="nav-btn">🍻 Regisztráció</a>
+    <a href="#letoltesek" class="nav-btn">📂 Letöltések</a>
+    <a href="#kovess" class="nav-btn">📱 Kövesd minket</a>
+</div>
+
+<div class="section" id="szamlalo">
 <h2>Az V. ABCD kocsmatúra kezdetéig hátra lévő idő:</h2>
 <div class="countdown" id="countdown"></div>
 </div>
 
-<div class="section">
+<div class="section" id="regisztracio">
 <h2>Regisztráció</h2>
-<form action="https://formspree.io/f/mojnorvy" method="POST">
+<form id="registerForm" action="https://formspree.io/f/mojnorvy" method="POST">
     <input type="text" name="teamname" placeholder="Csapat neve">
     <input type="text" name="captain" placeholder="Csapatkapitány neve *" required>
     <input type="email" name="email" placeholder="Email cím *" required>
@@ -218,33 +482,40 @@ input[type="checkbox"] {
         <input type="checkbox" name="rules" id="rules" required>
         <label for="rules">Elfogadom a szabályzatot *</label>
     </div>
-    <button type="submit">Regisztrálok</button>
+    <button type="submit" id="submitBtn">Regisztrálok</button>
 </form>
+<div class="spinner" id="spinner"></div>
+<div class="form-message" id="formMessage">✅ Jelentkezésed sikeresen elküldve!</div>
 </div>
 
-<div class="section">
+<div class="section" id="letoltesek">
 <h2>📂 Letölthető fájlok</h2>
-<!-- mindenki láthatja ezt -->
-<a href="files/alapszabalyzat.odt" class="file-link" download>Szabályzat letöltése</a>
 
-<p style="margin-top:30px;">Előfeladat letöltése jelszóval véve:</p>
-<input type="password" id="file-password" placeholder="Jelszó">
-<button id="unlock-btn" class="btn">Megnyitás</button>
+<div style="display:flex; flex-direction:column; gap:15px; align-items:center;">
+    <a href="files/alapszabalyzat.odt" class="download-btn btn-green" download>📋 Szabályzat letöltése</a>
+    
+    <div style="width:100%; text-align:center;">
+        <p style="margin-bottom:10px;">Előfeladat jelszóval:</p>
+        <div style="display:flex; gap:10px; justify-content:center;">
+            <input type="password" id="file-password" placeholder="Jelszó" style="max-width:200px;">
+            <button id="unlock-btn" class="btn">Megnyitás</button>
+        </div>
+    </div>
 
-<div id="protected-files" style="display:none; margin-top:20px;">
-    <a href="files/e_feladatlap.pdf" class="file-link" download>Előfeladat letöltése</a>
+    <div id="protected-files" style="display:none; width:100%;">
+        <a href="files/e_feladatlap.pdf" class="download-btn btn-red" download>📄 Előfeladat letöltése</a>
+    </div>
+    
+    <a href="files/tavalyi_feladatlap.pdf" class="download-btn btn-blue" download>📚 Tavalyi feladatlap letöltése</a>
+    
+    <a href="files/alkohollap_2025.pdf" class="download-btn btn-yellow" download>🍺 Alkohollap 2025 letöltése</a>
 </div>
 </div>
 
-<div class="section">
-<h2>📝 Tavalyi feladatlap</h2>
-<a href="files/tavalyi_feladatlap.pdf" class="file-link" download style="display:inline-block; padding:20px 40px; font-size:1.3rem; background: #FFD700; color: black; border-radius: 10px; font-weight: bold;">Tavalyi feladatlap letöltése</a>
-</div>
-
-<div class="section">
-<h2>📱 Kövesd minket</h2>
+<div class="section" id="kovess">
+<h2>📱 Kövess minket</h2>
 <div class="social-links">
-    <a href="https://instagram.com" target="_blank" title="Instagram">📷</a>
+    <a href="https://instagram.com" target="_blank" title="Instagram" class="instagram-link">📷</a>
 </div>
 </div>
 
@@ -313,6 +584,21 @@ checkFormValidity();
 requiredInputs.forEach(input => {
     input.addEventListener('input', checkFormValidity);
     input.addEventListener('change', checkFormValidity);
+});
+
+// Form submit with spinner
+const registerForm = document.getElementById('registerForm');
+const spinner = document.getElementById('spinner');
+const formMessage = document.getElementById('formMessage');
+
+registerForm.addEventListener('submit', (e) => {
+    spinner.style.display = 'block';
+    submitBtn.disabled = true;
+    
+    // Show success message after 2 seconds
+    setTimeout(() => {
+        formMessage.classList.add('success');
+    }, 2000);
 });
 </script>
 
