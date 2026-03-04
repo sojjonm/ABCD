@@ -455,15 +455,15 @@ input[type="checkbox"] {
 <h1>ABCD Kocsmatúra</h1>
 
 <div class="nav-buttons">
-    <a href="#szamlalo" class="nav-btn">⏳ Visszaszámlálás</a>
-    <a href="#regisztracio" class="nav-btn">🍻 Regisztráció</a>
+    <a href="#gyik" class="nav-btn">GYIK</a>
+    <a href="#regisztracio" class="nav-btn">Regisztráció</a>
     <a href="#letoltesek" class="nav-btn">📂 Letöltések</a>
     <a href="#kovess" class="nav-btn">📱 Kövesd minket</a>
 </div>
 
-<div class="section" id="szamlalo">
-<h2>Az V. ABCD kocsmatúra kezdetéig hátra lévő idő:</h2>
-<div class="countdown" id="countdown"></div>
+<div class="section" id="gyik">
+<h2>❓ GYIK</h2>
+<p>Hamarosan érkezik...</p>
 </div>
 
 <div class="section" id="regisztracio">
@@ -513,34 +513,15 @@ input[type="checkbox"] {
 <div class="section" id="kovess">
 <h2>📱 Kövess minket</h2>
 <div class="social-links">
-    <a href="https://www.instagram.com/a.b.c.d.kocsmatura/" target="_blank" title="Instagram" class="instagram-link">📷</a>
+    <a href="https://www.instagram.com/a.b.c.d.kocsmatura/" target="_blank" title="Instagram" class="instagram-link">
+        <img src="images/letöltés.jfif" alt="Instagram" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+    </a>
 </div>
 </div>
 
 </div>
 
 <script>
-const eventDate = new Date("April 10, 2026 18:00:00").getTime();
-
-const countdownFunction = setInterval(function() {
-    const now = new Date().getTime();
-    const distance = eventDate - now;
-
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    document.getElementById("countdown").innerHTML =
-        days + " nap " + hours + " óra " +
-        minutes + " perc " + seconds + " mp";
-
-    if (distance < 0) {
-        clearInterval(countdownFunction);
-        document.getElementById("countdown").innerHTML = "ELINDULT.";
-    }
-}, 1000);
-
 // Form validation - enable/disable submit button
 const form = document.querySelector('form');
 const submitBtn = form.querySelector('button[type="submit"]');
