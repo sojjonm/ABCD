@@ -28,6 +28,10 @@ h1 {
     font-size: 4rem;
     text-transform: uppercase;
     margin-bottom: 10px;
+    color: #FFD700;
+    -webkit-text-stroke: 2px black;
+    text-stroke: 2px black;
+    text-shadow: 3px 3px 0px rgba(0,0,0,0.8);
 }
 
 .subtitle {
@@ -41,6 +45,12 @@ h1 {
     background: rgba(20,20,20,0.9);
     padding: 30px;
     border-radius: 15px;
+    transition: all 0.3s ease;
+}
+
+.section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(255,215,0,0.3);
 }
 
 button, .btn {
@@ -53,6 +63,12 @@ button, .btn {
     cursor: pointer;
     text-decoration: none;
     color: black;
+    transition: all 0.3s ease;
+}
+
+button:hover, .btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
 }
 
 button:disabled {
@@ -61,15 +77,32 @@ button:disabled {
     opacity: 0.6;
 }
 
+button:disabled:hover {
+    transform: scale(1);
+    box-shadow: none;
+}
+
 input[type="text"],
 input[type="email"],
 input[type="tel"],
-input[type="number"] {
+input[type="number"],
+input[type="password"] {
     width: 90%;
     padding: 12px;
     margin: 10px 0;
     border-radius: 6px;
     border: none;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="number"]:focus,
+input[type="password"]:focus {
+    outline: none;
+    box-shadow: 0 0 15px rgba(255,215,0,0.5);
+    transform: scale(1.02);
 }
 
 input[type="checkbox"] {
@@ -102,6 +135,61 @@ input[type="checkbox"] {
     margin: 15px 0;
     color: cyan;
     font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.file-link:hover {
+    color: #00ffff;
+    text-shadow: 0 0 10px cyan;
+    transform: scale(1.05);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.section {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.section:nth-child(1) { animation-delay: 0.1s; }
+.section:nth-child(2) { animation-delay: 0.2s; }
+.section:nth-child(3) { animation-delay: 0.3s; }
+.section:nth-child(4) { animation-delay: 0.4s; }
+.section:nth-child(5) { animation-delay: 0.5s; }
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: #FFD700;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: black;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    transform: scale(1.2) rotate(-10deg);
+    box-shadow: 0 0 20px rgba(255,215,0,0.8);
 }
 </style>
 </head>
@@ -145,6 +233,18 @@ input[type="checkbox"] {
 
 <div id="protected-files" style="display:none; margin-top:20px;">
     <a href="files/e_feladatlap.pdf" class="file-link" download>Előfeladat letöltése</a>
+</div>
+</div>
+
+<div class="section">
+<h2>📝 Tavalyi feladatlap</h2>
+<a href="files/tavalyi_feladatlap.pdf" class="file-link" download style="display:inline-block; padding:20px 40px; font-size:1.3rem; background: #FFD700; color: black; border-radius: 10px; font-weight: bold;">Tavalyi feladatlap letöltése</a>
+</div>
+
+<div class="section">
+<h2>📱 Kövesd minket</h2>
+<div class="social-links">
+    <a href="https://instagram.com" target="_blank" title="Instagram">📷</a>
 </div>
 </div>
 
