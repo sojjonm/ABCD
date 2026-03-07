@@ -455,35 +455,16 @@ input[type="checkbox"] {
 <h1>ABCD Kocsmatúra</h1>
 
 <div class="nav-buttons">
-    <a href="#gyik" class="nav-btn">GYIK</a>
-    <a href="#regisztracio" class="nav-btn">Regisztráció</a>
+    <a href="#countdown" class="nav-btn">⏳ Visszaszámlálás</a>
     <a href="#letoltesek" class="nav-btn">📂 Letöltések</a>
-    <a href="#kovess" class="nav-btn">📱 Kövess minket!</a>
+    <a href="#regisztracio" class="nav-btn">🍻 Regisztráció</a>
+    <a href="#gyik" class="nav-btn">❓ GYIK</a>
+    <a href="#kovess" class="nav-btn">Kövess minket!</a>
 </div>
 
-<div class="section" id="gyik">
-<h2>❓ GYIK</h2>
-<p>Hamarosan érkezik...</p>
-</div>
-
-<div class="section" id="regisztracio">
-<h2>Regisztráció</h2>
-<form id="registerForm" action="https://formspree.io/f/mojnorvy" method="POST">
-    <input type="text" name="teamname" placeholder="Csapat neve">
-    <input type="text" name="captain" placeholder="Csapatkapitány neve *" required>
-    <input type="email" name="email" placeholder="Email cím *" required>
-    <input type="tel" name="phone" placeholder="Telefonszám *" required>
-    <input type="text" name="member2" placeholder="2. csapattag neve *" required>
-    <input type="text" name="member3" placeholder="3. csapattag neve">
-    <input type="text" name="member4" placeholder="4. csapattag neve">
-    <div class="checkbox-group">
-        <input type="checkbox" name="rules" id="rules" required>
-        <label for="rules">Elfogadom a szabályzatot *</label>
-    </div>
-    <button type="submit" id="submitBtn">Regisztrálok</button>
-</form>
-<div class="spinner" id="spinner"></div>
-<div class="form-message" id="formMessage">✅ Jelentkezésed sikeresen elküldve!</div>
+<div class="section" id="countdown">
+<h2>⏳ Az V. ABCD kocsmatúra kezdetéig hátra lévő idő:</h2>
+<div class="countdown" id="countdown-timer"></div>
 </div>
 
 <div class="section" id="letoltesek">
@@ -510,6 +491,31 @@ input[type="checkbox"] {
 </div>
 </div>
 
+<div class="section" id="regisztracio">
+<h2>Regisztráció</h2>
+<form id="registerForm" action="https://formspree.io/f/mojnorvy" method="POST">
+    <input type="text" name="teamname" placeholder="Csapat neve">
+    <input type="text" name="captain" placeholder="Csapatkapitány neve *" required>
+    <input type="email" name="email" placeholder="Email cím *" required>
+    <input type="tel" name="phone" placeholder="Telefonszám *" required>
+    <input type="text" name="member2" placeholder="2. csapattag neve *" required>
+    <input type="text" name="member3" placeholder="3. csapattag neve">
+    <input type="text" name="member4" placeholder="4. csapattag neve">
+    <div class="checkbox-group">
+        <input type="checkbox" name="rules" id="rules" required>
+        <label for="rules">Elfogadom a szabályzatot *</label>
+    </div>
+    <button type="submit" id="submitBtn">Regisztrálok</button>
+</form>
+<div class="spinner" id="spinner"></div>
+<div class="form-message" id="formMessage">✅ Jelentkezésed sikeresen elküldve!</div>
+</div>
+
+<div class="section" id="gyik">
+<h2>❓ GYIK</h2>
+<p>Hamarosan érkezik...</p>
+</div>
+
 <div class="section" id="kovess">
 <h2>📱 Kövess minket!</h2>
 <div class="social-links">
@@ -522,6 +528,27 @@ input[type="checkbox"] {
 </div>
 
 <script>
+const eventDate = new Date("April 10, 2026 18:00:00").getTime();
+
+const countdownFunction = setInterval(function() {
+    const now = new Date().getTime();
+    const distance = eventDate - now;
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("countdown-timer").innerHTML =
+        days + " nap " + hours + " óra " +
+        minutes + " perc " + seconds + " mp";
+
+    if (distance < 0) {
+        clearInterval(countdownFunction);
+        document.getElementById("countdown-timer").innerHTML = "ELINDULT.";
+    }
+}, 1000);
+
 // Form validation - enable/disable submit button
 const form = document.querySelector('form');
 const submitBtn = form.querySelector('button[type="submit"]');
