@@ -493,6 +493,11 @@ input[type="checkbox"] {
 
 <div class="section" id="regisztracio">
 <h2>Regisztráció</h2>
+<div id="reg-countdown" style="display: none;">
+<p>A jelentkezési felület hamarosan (március 9. 18:00-kor nyílik)</p>
+<div id="reg-countdown-timer" class="countdown"></div>
+</div>
+<div id="reg-form">
 <form id="registerForm" action="https://formspree.io/f/mojnorvy" method="POST">
     <input type="text" name="teamname" placeholder="Csapat neve">
     <input type="text" name="captain" placeholder="Csapatkapitány neve *" required>
@@ -509,6 +514,7 @@ input[type="checkbox"] {
 </form>
 <div class="spinner" id="spinner"></div>
 <div class="form-message" id="formMessage">✅ Jelentkezésed sikeresen elküldve!</div>
+</div>
 </div>
 
 <div class="section" id="gyik">
@@ -606,6 +612,35 @@ registerForm.addEventListener('submit', (e) => {
         formMessage.classList.add('success');
     }, 2000);
 });
+
+// Registration countdown
+const regOpenDate = new Date("March 9, 2026 18:00:00").getTime();
+const regCountdownEl = document.getElementById('reg-countdown');
+const regFormEl = document.getElementById('reg-form');
+const regCountdownTimerEl = document.getElementById('reg-countdown-timer');
+
+function updateRegSection() {
+    const now = new Date().getTime();
+    if (now < regOpenDate) {
+        regCountdownEl.style.display = 'block';
+        regFormEl.style.display = 'none';
+        const distance = regOpenDate - now;
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        regCountdownTimerEl.innerHTML = days + " nap " + hours + " óra " + minutes + " perc " + seconds + " mp";
+    } else {
+        regCountdownEl.style.display = 'none';
+        regFormEl.style.display = 'block';
+    }
+}
+
+// Initial check
+updateRegSection();
+
+// Update every second
+setInterval(updateRegSection, 1000);
 </script>
 
 </body>
