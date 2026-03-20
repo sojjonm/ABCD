@@ -7,6 +7,60 @@
 <title>V. A.B.C.D. Kocsmatúra</title>
 
 <style>
+/* FAQ layout */
+.faq-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Card */
+.faq-card {
+    width: 220px;
+    height: 150px;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.faq-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+/* Flip állapot */
+.faq-card.flipped .faq-inner {
+    transform: rotateY(180deg);
+}
+
+/* Front + Back */
+.faq-front, .faq-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+}
+
+/* Front design */
+.faq-front {
+    background: #222;
+    border: 1px solid #444;
+}
+
+/* Back design */
+.faq-back {
+    background: #FFD700;
+    color: black;
+    transform: rotateY(180deg);
+}
 body {
     margin: 0;
     font-family: 'Inter', sans-serif;
@@ -733,6 +787,11 @@ const navButtons = document.querySelectorAll('.nav-btn');
 navButtons.forEach((btn, index) => {
     const randomColor = colors[Math.floor(Math.random() * colors.length)];
     btn.setAttribute('data-color', randomColor);
+});
+document.querySelectorAll('.faq-card').forEach(card => {
+    card.addEventListener('click', () => {
+        card.classList.toggle('flipped');
+    });
 });
 </script>
 
