@@ -44,10 +44,9 @@
     gap: 20px;
 }
 
-/* Card */
 .faq-card {
-    width: 220px;
-    height: 150px;
+    width: 320px;
+    height: 200px;
     perspective: 1000px;
     cursor: pointer;
 }
@@ -823,11 +822,6 @@ const navButtons = document.querySelectorAll('.nav-btn');
 navButtons.forEach((btn, index) => {
     const randomColor = colors[Math.floor(Math.random() * colors.length)];
     btn.setAttribute('data-color', randomColor);
-});
-document.querySelectorAll('.faq-card').forEach(card => {
-    card.addEventListener('click', () => {
-        card.classList.toggle('flipped');
-    });
 });
 
 const cards = document.querySelectorAll('#faq-track .faq-card');
