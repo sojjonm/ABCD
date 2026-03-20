@@ -7,6 +7,35 @@
 <title>V. A.B.C.D. Kocsmatúra</title>
 
 <style>
+.faq-slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.faq-track {
+    width: 240px;
+    overflow: hidden;
+}
+
+.faq-track .faq-card {
+    display: none;
+}
+
+.faq-track .faq-card.active {
+    display: block;
+}
+
+/* nyilak */
+.faq-nav {
+    background: #FFD700;
+    border: none;
+    font-size: 1.5rem;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+}
 /* FAQ layout */
 .faq-container {
     display: flex;
@@ -601,62 +630,69 @@ input[type="checkbox"] {
 <div class="section" id="gyik">
 <h2>❓ GYIK</h2>
 
-<div class="faq-container">
+<div class="faq-slider">
 
-    <div class="faq-card">
-        <div class="faq-inner">
-            <div class="faq-front">
-                <p> Mi van ha az egyik csapattag váratlanul mégsem tudna jönni?</p>
-            </div>
-            <div class="faq-back">
-                <p>Ha valaki váratlanul kiesik a csapatból, indokolt esetben a kocsmatúra előtt közvetlenül is változtathattok a csapattagokon, de ha nem sikerül utolsó pillanatban negyedik embert találni, nincs akadálya annak sem hogy hárman teljesítsétek a feladatokat.</p>
+    <button class="faq-nav left">◀</button>
+
+    <div class="faq-track" id="faq-track">
+
+        <div class="faq-card">
+            <div class="faq-inner">
+                <div class="faq-front">
+                    <p> Mi van ha az egyik csapattag váratlanul mégsem tudna jönni?</p>
+                </div>
+                <div class="faq-back">
+                    <p>Ha valaki váratlanul kiesik a csapatból, indokolt esetben a kocsmatúra előtt közvetlenül is változtathattok a csapattagokon, de ha nem sikerül utolsó pillanatban negyedik embert találni, nincs akadálya annak sem hogy hárman teljesítsétek a feladatokat.</p>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="faq-card">
-        <div class="faq-inner">
-            <div class="faq-front">
-                <p> Mi van ha nincs 3 barátom aki eljönne velem, de én szeretnék menni?</p>
-            </div>
-            <div class="faq-back">
-                <p>Ha nem vagytok elegen egy csapat összeállításához, jelentkezz a szervezőknél állomásnak, így csak egy embert kell beszervezned magad mellé és így is részt vehettek az eseményen.</p>
+        <div class="faq-card">
+            <div class="faq-inner">
+                <div class="faq-front">
+                    <p> Mi van ha nincs 3 barátom aki eljönne velem, de én szeretnék menni?</p>
+                </div>
+                <div class="faq-back">
+                    <p>Ha nem vagytok elegen egy csapat összeállításához, jelentkezz a szervezőknél állomásnak, így csak egy embert kell beszervezned magad mellé és így is részt vehettek az eseményen.</p>
+                </div>
             </div>
         </div>
-    </div>
-
-    <div class="faq-card">
-        <div class="faq-inner">
-            <div class="faq-front">
-                <p>Muszáj 4 fős csapatokban menni? Nem lehet párban is?</p>
-            </div>
-            <div class="faq-back">
-                <p>Nem muszáj meglenni négyen, három vagy akár két fős csapatban is lehet jelentkezni, de a négy fős csapatok az ideálisak.</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="faq-card">
-        <div class="faq-inner">
-            <div class="faq-front">
-                <p>Az irsai olivér az az I-nél vagy az O-nál számít?</p>
-            </div>
-            <div class="faq-back">
-                <p>Az Irsai Olivérrel a B (bor), I (Irsai Olivér), és a pincészet nevének kezdőbetűjét tudjátok teljesíteni. A részletes szabályzatot az alkoholokról a honlapról letölthető alapszabályban találtok, link a bioban!</p>
-            </div>
-        </div>
-    </div>
     
-    <div class="faq-card">
-        <div class="faq-inner">
-            <div class="faq-front">
-                <p> Én nem akarok sokat inni, van értelme úgy is menni?</p>
-            </div>
-            <div class="faq-back">
-                <p>Elég lelkes csapattársak mellett a csapat teljesítheti az összes alkoholpontot, de nagyon fontos, hogy akár kevés alkoholpont teljesítésével is jó eredményt lehet elérni a feladatok jó megoldásával!</p>
+        <div class="faq-card">
+            <div class="faq-inner">
+                <div class="faq-front">
+                    <p>Muszáj 4 fős csapatokban menni? Nem lehet párban is?</p>
+                </div>
+                <div class="faq-back">
+                    <p>Nem muszáj meglenni négyen, három vagy akár két fős csapatban is lehet jelentkezni, de a négy fős csapatok az ideálisak.</p>
+                </div>
             </div>
         </div>
+    
+        <div class="faq-card">
+            <div class="faq-inner">
+                <div class="faq-front">
+                    <p>Az irsai olivér az az I-nél vagy az O-nál számít?</p>
+                </div>
+                <div class="faq-back">
+                    <p>Az Irsai Olivérrel a B (bor), I (Irsai Olivér), és a pincészet nevének kezdőbetűjét tudjátok teljesíteni. A részletes szabályzatot az alkoholokról a honlapról letölthető alapszabályban találtok, link a bioban!</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="faq-card">
+            <div class="faq-inner">
+                <div class="faq-front">
+                    <p> Én nem akarok sokat inni, van értelme úgy is menni?</p>
+                </div>
+                <div class="faq-back">
+                    <p>Elég lelkes csapattársak mellett a csapat teljesítheti az összes alkoholpontot, de nagyon fontos, hogy akár kevés alkoholpont teljesítésével is jó eredményt lehet elérni a feladatok jó megoldásával!</p>
+                </div>
+            </div>
+        </div>
+    
     </div>
+    <button class="faq-nav right">▶</button>
 
 </div>
 </div>
@@ -789,6 +825,39 @@ navButtons.forEach((btn, index) => {
     btn.setAttribute('data-color', randomColor);
 });
 document.querySelectorAll('.faq-card').forEach(card => {
+    card.addEventListener('click', () => {
+        card.classList.toggle('flipped');
+    });
+});
+
+const cards = document.querySelectorAll('#faq-track .faq-card');
+const prevBtn = document.querySelector('.faq-nav.left');
+const nextBtn = document.querySelector('.faq-nav.right');
+
+let current = 0;
+
+// első kártya megjelenítése
+cards[current].classList.add('active');
+
+function showCard(index) {
+    cards.forEach(card => card.classList.remove('active'));
+    cards[index].classList.add('active');
+}
+
+// jobbra
+nextBtn.addEventListener('click', () => {
+    current = (current + 1) % cards.length;
+    showCard(current);
+});
+
+// balra
+prevBtn.addEventListener('click', () => {
+    current = (current - 1 + cards.length) % cards.length;
+    showCard(current);
+});
+
+// flip továbbra is működik
+cards.forEach(card => {
     card.addEventListener('click', () => {
         card.classList.toggle('flipped');
     });
