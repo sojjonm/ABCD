@@ -71,10 +71,26 @@
     height: 100%;
     backface-visibility: hidden;
     border-radius: 12px;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     padding: 15px;
+    box-sizing: border-box;
+    text-align: center;
+
+    overflow: hidden;
+}
+
+.faq-front p,
+.faq-back p {
+    margin: 0;
+    line-height: 1.4;
+    font-size: 0.95rem;
+
+    /* tördelés */
+    word-break: break-word;
 }
 
 /* Front design */
@@ -834,7 +850,10 @@ let current = 0;
 cards[current].classList.add('active');
 
 function showCard(index) {
-    cards.forEach(card => card.classList.remove('active'));
+    cards.forEach(card => {
+        card.classList.remove('active');
+        card.classList.remove('flipped');
+    });
     cards[index].classList.add('active');
 }
 
@@ -853,6 +872,7 @@ prevBtn.addEventListener('click', () => {
 // flip továbbra is működik
 cards.forEach(card => {
     card.addEventListener('click', () => {
+        if (e.target.closest('.faq-nav')) return;
         card.classList.toggle('flipped');
     });
 });
