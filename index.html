@@ -3,8 +3,8 @@
 <head>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;700&display=swap" rel="stylesheet">
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>V. A.B.C.D. Kocsmatúra</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 * {
@@ -110,6 +110,21 @@
     color: black;
     transform: rotateY(180deg);
 }
+
+@media (max-width: 768px) {
+    .faq-card {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        min-height: 180px;
+    }
+
+    .faq-front, .faq-back {
+        padding: 15px;
+        font-size: 14px;
+    }
+}
+
 body {
     margin: 0;
     font-family: 'Inter', sans-serif;
@@ -148,6 +163,15 @@ h1 {
     padding: 30px;
     border-radius: 15px;
     transition: all 0.3s ease;
+    scroll-margin-top: 150px;
+}
+
+@media (max-width: 768px) {
+    .section {
+        margin: 30px 10px;
+        padding: 20px;
+        max-width: 100%;
+    }
 }
 
 .section:hover {
@@ -378,6 +402,23 @@ input[type="checkbox"] {
     flex-wrap: wrap;
 }
 
+@media (max-width: 768px) {
+    .nav-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        padding: 10px;
+        position: relative;
+    }
+
+    .nav-buttons a {
+        width: 100%;
+        text-align: center;
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
 .nav-btn {
     padding: 12px 25px;
     color: black;
@@ -560,6 +601,22 @@ input[type="checkbox"] {
         font-size: 0.9rem;
     }
 }
+
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+}
+    
 </style>
 </head>
 
@@ -941,6 +998,7 @@ window.addEventListener('scroll', () => {
         }
     });
 });
+    
 </script>
 
 </body>
