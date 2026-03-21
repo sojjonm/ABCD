@@ -45,8 +45,8 @@
 }
 
 .faq-card {
-    width: 320px;
-    height: 200px;
+    width: 360px;
+    height: 240px;
     perspective: 1000px;
     cursor: pointer;
 }
@@ -76,21 +76,21 @@
     align-items: center;
     justify-content: center;
 
-    padding: 15px;
+    padding: 20px;
     box-sizing: border-box;
     text-align: center;
 
-    overflow: hidden;
+    overflow-y: auto;
 }
 
 .faq-front p,
 .faq-back p {
     margin: 0;
-    line-height: 1.4;
-    font-size: 0.95rem;
+    line-height: 1.5;
+    font-size: 1rem;
 
-    /* tördelés */
     word-break: break-word;
+    max-width: 100%;
 }
 
 /* Front design */
@@ -871,7 +871,7 @@ prevBtn.addEventListener('click', () => {
 
 // flip továbbra is működik
 cards.forEach(card => {
-    card.addEventListener('click', () => {
+    card.addEventListener('click', (e) => {
         if (e.target.closest('.faq-nav')) return;
         card.classList.toggle('flipped');
     });
