@@ -122,29 +122,43 @@
     .faq-front, .faq-back {
         padding: 15px;
         font-size: 14px;
+        width: 100%;
+        height: auto;
+        min-height: 260px;
+        box-sizing: border-box;
     }
 
     .faq-slider {
-    flex-direction: column;
-    gap: 10px;
+        width: 100%;
+        padding: 0 10px;
+        box-sizing: border-box;
+        flex-direction: column;
+        align-items: stretch;
     }
     
     .faq-track {
-        max-width: 100%;
         width: 100%;
+        max-width: none;
+        overflow: visible;
+        display: flex;
+        justify-content: center;
     }
     
     .faq-card {
         width: 100%;
-        max-width: 100%;
+        max-width: none;
+        min-height: 260px;
         height: auto;
-        min-height: 220px;
+        box-sizing: border-box;
+        white-space: normal;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
     }
-
+    
     .faq-nav {
-    width: 100%;
-    max-width: 200px;
-    }
+        width: 100%;
+        max-width: 200px;
+     }
 }
 
 body {
